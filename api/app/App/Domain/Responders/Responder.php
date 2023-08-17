@@ -16,7 +16,7 @@ abstract class Responder
         return $this;
     }
 
-    public function hasErrorPayload($response)
+    public function hasErrorsPayload($response)
     {
         if (
             $response instanceof ValidationPayload ||

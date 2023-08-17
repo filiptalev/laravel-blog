@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Src\Domain\Models;
 
 use Carbon\Carbon;
 use Illuminate\Support\Str;
