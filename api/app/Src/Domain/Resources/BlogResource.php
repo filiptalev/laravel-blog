@@ -13,7 +13,7 @@ class BlogResource extends JsonResource
             'user_id' => $this->user_id,
             'title' => $this->title,
             'body' => $this->body,
-            'image' => $this->image,
+            'image' => is_null($this->image) ? null : config('app.url') . $this->image,
             'user' => $this->user,
         ];
     }

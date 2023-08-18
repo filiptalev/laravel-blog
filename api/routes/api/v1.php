@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::post('/blogs', CreateBlogAction::class);
         Route::post('/blogs/{id}', UpdateBlogAction::class);
         Route::delete('/blogs/{id}', DeleteBlogAction::class);
+        Route::get('/blogs', IndexBlogAction::class);
     });
 
 });

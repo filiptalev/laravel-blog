@@ -33,10 +33,10 @@ class PasswordReset extends Mailable
     {
         return $this
             ->subject(trans('success-messages.auction_created_subject'))
-            ->view('emails.auction-created')
+            ->view('emails.password-reset')
             ->with([
                 'name' => $this->user->first_name . ' ' . $this->user->last_name,
-                'link' => config('app.www_url') . '/reset-password/' . $this->token
+                'link' => config('app.cms_url') . '/reset-password/' . $this->token
             ]);
     }
 }

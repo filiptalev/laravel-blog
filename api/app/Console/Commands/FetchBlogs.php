@@ -19,7 +19,7 @@ class FetchBlogs extends Command
 
     public function handle()
     {
-        $response = Http::post('https://www.risklick.ch/api/v2/blogs');
+        $response = Http::post(config('app.blog_url'));
         
 
         if ($response->status() === 200) {
