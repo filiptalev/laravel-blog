@@ -34,4 +34,14 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::delete('/users/{id}', DeleteUserAction::class);
         Route::post('users/{id}/activate', ActivateUserAction::class);
     });
+
+    /* Blog Routes */
+    Route::group(['namespace' => 'Blog'], function () {
+        Route::post('/blogs-paginated', IndexBlogPaginatedAction::class);
+        Route::get('/blogs/{id}', ShowBlogAction::class);
+        Route::post('/blogs', CreateBlogAction::class);
+        Route::post('/blogs/{id}', UpdateBlogAction::class);
+        Route::delete('/blogs/{id}', DeleteBlogAction::class);
+    });
+
 });

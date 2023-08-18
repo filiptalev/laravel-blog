@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Src\Domain\Models\Blog;
 use App\Src\Domain\Models\User;
+use App\Src\Domain\Policies\BlogPolicy;
 use App\Src\Domain\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -15,6 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         User::class => UserPolicy::class,
+        Blog::class => BlogPolicy::class,
     ];
 
     /**

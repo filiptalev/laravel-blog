@@ -2,21 +2,38 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Database\Seeders\UsersTableSeeder;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
+    protected $toTruncate = [
+        'users',
+    ];
     /**
      * Seed the application's database.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Model::unguard();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Schema::disableForeignKeyConstraints();
+
+        foreach ($this->toTruncate as $table) {
+            DB::table($table)->truncate();
+        }
+
+        Schema::enableForeignKeyConstraints();
+
+        $this->call([
+            UsersTableSeeder::class,
+        ]);
+
+        Model::reguard();
     }
 }
